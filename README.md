@@ -25,44 +25,49 @@ Update your `tsconfig.json` with the following paths configuration:
 }
 ```
 
-
-
 ### Components
 
-| Component        | Path                                      | Status |
-|------------------|-------------------------------------------|--------|
-| Icons            | `./icons`                                 | ✔️     |
-| Avatar           | `./ui/avatar`                            | ✔️     |
-| Alert Dialog     | `./ui/alert-dialog`                      | ✔️     |
-| Button           | `./ui/button`                            | ✔️     |
-| Card             | `./ui/card`                              | ✔️     |
-| Checkbox         | `./ui/checkbox`                          | ✔️     |
-| Context Menu     | `./ui/context-menu`                      | ✔️     |
-| Dialog           | `./ui/dialog`                            | ✔️     |
-| Dropdown Menu    | `./ui/dropdown-menu`                     | ✔️     |
-| Index            | `./ui/index.ts`                         | ✔️     |
-| Label            | `./ui/label`                             | ✔️     |
-| Loader           | `./ui/loader`                            | ✔️     |
-| Pagination       | `./ui/pagination`                        | WIP    |
-| Popover          | `./ui/popover`                           | ✔️     |
-| Progress         | `./ui/progress`                          | ✔️     |
-| Radio Group      | `./ui/radio-group`                      | ✔️     |
-| Resizable        | `./ui/resizable`                        | ✔️     |
-| Select           | `./ui/select`                            | ✔️     |
-| Skeleton         | `./ui/skeleton`                          | ✔️     |
-| Slider           | `./ui/slider`                            | ✔️     |
-| Switch           | `./ui/switch`                            | ✔️     |
-| Table            | `./ui/table`                             | ✔️     |
-| Textarea         | `./ui/textarea`                          | ✔️     |
-| Toast            | `./ui/toast`                             | ✔️     |
-| Toaster          | `./ui/toaster`                          | ✔️     |
-| Toggle           | `./ui/toggle`                            | ✔️     |
-| Tooltip          | `./ui/tooltip`                          | ✔️     |
-| Use Toast        | `./ui/use-toast`                        | ✔️     |
-| Collapsible      |                                           | WIP    |
-| Stepper          |                                           | WIP    |
-| Input            |                                           | WIP    |
-| Tabs             |                                           | WIP    |
+| Component     | Path                 | Status |
+| ------------- | -------------------- | ------ |
+| Icons         | `./icons`            | ✔️     |
+| Avatar        | `./ui/avatar`        | ✔️     |
+| Alert Dialog  | `./ui/alert-dialog`  | ✔️     |
+| Button        | `./ui/button`        | ✔️     |
+| Card          | `./ui/card`          | ✔️     |
+| Checkbox      | `./ui/checkbox`      | ✔️     |
+| Context Menu  | `./ui/context-menu`  | ✔️     |
+| Dialog        | `./ui/dialog`        | ✔️     |
+| Dropdown Menu | `./ui/dropdown-menu` | ✔️     |
+| Index         | `./ui/index.ts`      | ✔️     |
+| Label         | `./ui/label`         | ✔️     |
+| Loader        | `./ui/loader`        | ✔️     |
+| Popover       | `./ui/popover`       | ✔️     |
+| Progress      | `./ui/progress`      | ✔️     |
+| Radio Group   | `./ui/radio-group`   | ✔️     |
+| Resizable     | `./ui/resizable`     | ✔️     |
+| Select        | `./ui/select`        | ✔️     |
+| Skeleton      | `./ui/skeleton`      | ✔️     |
+| Slider        | `./ui/slider`        | ✔️     |
+| Switch        | `./ui/switch`        | ✔️     |
+| Table         | `./ui/table`         | ✔️     |
+| Textarea      | `./ui/textarea`      | ✔️     |
+| Toast         | `./ui/toast`         | ✔️     |
+| Toaster       | `./ui/toaster`       | ✔️     |
+| Toggle        | `./ui/toggle`        | ✔️     |
+| Tooltip       | `./ui/tooltip`       | ✔️     |
+| Use Toast     | `./ui/use-toast`     | ✔️     |
+| Collapsible   | -                    | WIP    |
+| Stepper       | -                    | WIP    |
+| Input         | -                    | WIP    |
+| Tabs          | -                    | WIP    |
+| Pagination    | -                    | WIP    |
+| Badge         | -                    | WIP    |
+| Breadcrumb    | -                    | WIP    |
+| Accordian     | -                    | WIP    |
+| Calendar      | -                    | WIP    |
+| Carausel      | -                    | WIP    |
+| Combobox      | -                    | WIP    |
+| Date picker   | -                    | WIP    |
 
 ### References
 

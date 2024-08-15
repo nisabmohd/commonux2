@@ -8,8 +8,7 @@
   "types": "dist/index.d.ts",
   "exports": {
     "./ui": "./dist/index.js",
-    "./styles.css": "./dist/styles.css",
-    "./ui/alert-dialog": "./dist/ui/alert-dialog.js"
+    "./styles.css": "./dist/styles.css"
   },
   "files": [
     "dist/"

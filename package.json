@@ -1,14 +1,40 @@
 {
   "name": "commonux2",
-  "version": "1.1.2",
+  "version": "1.2.1",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    "./ui": "./dist/index.js",
-    "./styles.css": "./dist/styles.css"
+    "./utils": "./dist/lib/utils.js",
+    "./styles.css": "./dist/styles.css",
+    "./ui/alert-dialog": "./dist/ui/alert-dialog/index.js",
+    "./ui/button": "./dist/ui/button/index.js",
+    "./ui/card": "./dist/ui/card/index.js",
+    "./ui/checkbox": "./dist/ui/checkbox/index.js",
+    "./ui/context-menu": "./dist/ui/context-menu/index.js",
+    "./ui/dialog": "./dist/ui/dialog/index.js",
+    "./ui/dropdown-menu": "./dist/ui/dropdown-menu/index.js",
+    "./ui/index.ts": "./dist/ui/index.ts/index.js",
+    "./ui/label": "./dist/ui/label/index.js",
+    "./ui/loader": "./dist/ui/loader/index.js",
+    "./ui/pagination": "./dist/ui/pagination/index.js",
+    "./ui/popover": "./dist/ui/popover/index.js",
+    "./ui/progress": "./dist/ui/progress/index.js",
+    "./ui/radio-group": "./dist/ui/radio-group/index.js",
+    "./ui/resizable": "./dist/ui/resizable/index.js",
+    "./ui/select": "./dist/ui/select/index.js",
+    "./ui/skeleton": "./dist/ui/skeleton/index.js",
+    "./ui/slider": "./dist/ui/slider/index.js",
+    "./ui/switch": "./dist/ui/switch/index.js",
+    "./ui/table": "./dist/ui/table/index.js",
+    "./ui/textarea": "./dist/ui/textarea/index.js",
+    "./ui/toast": "./dist/ui/toast/index.js",
+    "./ui/toaster": "./dist/ui/toaster/index.js",
+    "./ui/toggle": "./dist/ui/toggle/index.js",
+    "./ui/tooltip": "./dist/ui/tooltip/index.js",
+    "./ui/use-toast": "./dist/ui/use-toast/index.js"
   },
   "files": [
     "dist/"

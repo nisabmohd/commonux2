@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css"
   },
@@ -126,10 +126,17 @@
   "files": [
     "dist/"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "components",
+    "react",
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "radixui"
+  ],
+  "author": "nisabmohd",
   "license": "ISC",
-  "description": "",
+  "description": "A collection of styled components for use in ABB projects, designed for React and Next.js. It features TypeScript support, integrates Lucide icons, and is built on Radix primitives with Tailwind CSS.",
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",

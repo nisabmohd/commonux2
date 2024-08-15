@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css"
   },
@@ -8,34 +8,116 @@
   "types": "dist/index.d.ts",
   "exports": {
     "./utils": "./dist/lib/utils.js",
+    "./icons": "./dist/lib/icons.js",
     "./styles.css": "./dist/styles.css",
-    "./ui/avatar": "./dist/ui/avatar/index.js",
-    "./ui/alert-dialog": "./dist/ui/alert-dialog/index.js",
-    "./ui/button": "./dist/ui/button/index.js",
-    "./ui/card": "./dist/ui/card/index.js",
-    "./ui/checkbox": "./dist/ui/checkbox/index.js",
-    "./ui/context-menu": "./dist/ui/context-menu/index.js",
-    "./ui/dialog": "./dist/ui/dialog/index.js",
-    "./ui/dropdown-menu": "./dist/ui/dropdown-menu/index.js",
-    "./ui/index.ts": "./dist/ui/index.ts/index.js",
-    "./ui/label": "./dist/ui/label/index.js",
-    "./ui/loader": "./dist/ui/loader/index.js",
-    "./ui/pagination": "./dist/ui/pagination/index.js",
-    "./ui/popover": "./dist/ui/popover/index.js",
-    "./ui/progress": "./dist/ui/progress/index.js",
-    "./ui/radio-group": "./dist/ui/radio-group/index.js",
-    "./ui/resizable": "./dist/ui/resizable/index.js",
-    "./ui/select": "./dist/ui/select/index.js",
-    "./ui/skeleton": "./dist/ui/skeleton/index.js",
-    "./ui/slider": "./dist/ui/slider/index.js",
-    "./ui/switch": "./dist/ui/switch/index.js",
-    "./ui/table": "./dist/ui/table/index.js",
-    "./ui/textarea": "./dist/ui/textarea/index.js",
-    "./ui/toast": "./dist/ui/toast/index.js",
-    "./ui/toaster": "./dist/ui/toaster/index.js",
-    "./ui/toggle": "./dist/ui/toggle/index.js",
-    "./ui/tooltip": "./dist/ui/tooltip/index.js",
-    "./ui/use-toast": "./dist/ui/use-toast/index.js"
+    "./ui/avatar": {
+      "import": "./dist/ui/avatar/index.js",
+      "types": "./dist/ui/avatar/index.d.ts"
+    },
+    "./ui/alert-dialog": {
+      "import": "./dist/ui/alert-dialog/index.js",
+      "types": "./dist/ui/alert-dialog/index.d.ts"
+    },
+    "./ui/button": {
+      "import": "./dist/ui/button/index.js",
+      "types": "./dist/ui/button/index.d.ts"
+    },
+    "./ui/card": {
+      "import": "./dist/ui/card/index.js",
+      "types": "./dist/ui/card/index.d.ts"
+    },
+    "./ui/checkbox": {
+      "import": "./dist/ui/checkbox/index.js",
+      "types": "./dist/ui/checkbox/index.d.ts"
+    },
+    "./ui/context-menu": {
+      "import": "./dist/ui/context-menu/index.js",
+      "types": "./dist/ui/context-menu/index.d.ts"
+    },
+    "./ui/dialog": {
+      "import": "./dist/ui/dialog/index.js",
+      "types": "./dist/ui/dialog/index.d.ts"
+    },
+    "./ui/dropdown-menu": {
+      "import": "./dist/ui/dropdown-menu/index.js",
+      "types": "./dist/ui/dropdown-menu/index.d.ts"
+    },
+    "./ui/index.ts": {
+      "import": "./dist/ui/index.ts/index.js",
+      "types": "./dist/ui/index.ts/index.d.ts"
+    },
+    "./ui/label": {
+      "import": "./dist/ui/label/index.js",
+      "types": "./dist/ui/label/index.d.ts"
+    },
+    "./ui/loader": {
+      "import": "./dist/ui/loader/index.js",
+      "types": "./dist/ui/loader/index.d.ts"
+    },
+    "./ui/pagination": {
+      "import": "./dist/ui/pagination/index.js",
+      "types": "./dist/ui/pagination/index.d.ts"
+    },
+    "./ui/popover": {
+      "import": "./dist/ui/popover/index.js",
+      "types": "./dist/ui/popover/index.d.ts"
+    },
+    "./ui/progress": {
+      "import": "./dist/ui/progress/index.js",
+      "types": "./dist/ui/progress/index.d.ts"
+    },
+    "./ui/radio-group": {
+      "import": "./dist/ui/radio-group/index.js",
+      "types": "./dist/ui/radio-group/index.d.ts"
+    },
+    "./ui/resizable": {
+      "import": "./dist/ui/resizable/index.js",
+      "types": "./dist/ui/resizable/index.d.ts"
+    },
+    "./ui/select": {
+      "import": "./dist/ui/select/index.js",
+      "types": "./dist/ui/select/index.d.ts"
+    },
+    "./ui/skeleton": {
+      "import": "./dist/ui/skeleton/index.js",
+      "types": "./dist/ui/skeleton/index.d.ts"
+    },
+    "./ui/slider": {
+      "import": "./dist/ui/slider/index.js",
+      "types": "./dist/ui/slider/index.d.ts"
+    },
+    "./ui/switch": {
+      "import": "./dist/ui/switch/index.js",
+      "types": "./dist/ui/switch/index.d.ts"
+    },
+    "./ui/table": {
+      "import": "./dist/ui/table/index.js",
+      "types": "./dist/ui/table/index.d.ts"
+    },
+    "./ui/textarea": {
+      "import": "./dist/ui/textarea/index.js",
+      "types": "./dist/ui/textarea/index.d.ts"
+    },
+    "./ui/toast": {
+      "import": "./dist/ui/toast/index.js",
+      "types": "./dist/ui/toast/index.d.ts"
+    },
+    "./ui/toaster": {
+      "import": "./dist/ui/toaster/index.js",
+      "types": "./dist/ui/toaster/index.d.ts"
+    },
+    "./ui/toggle": {
+      "import": "./dist/ui/toggle/index.js",
+      "types": "./dist/ui/toggle/index.d.ts"
+    },
+    "./ui/tooltip": {
+      "import": "./dist/ui/tooltip/index.js",
+      "types": "./dist/ui/tooltip/index.d.ts"
+    },
+    "./ui/use-toast": {
+      "import": "./dist/ui/use-toast/index.js",
+      "types": "./dist/ui/use-toast/index.d.ts"
+    }
   },
   "files": [
     "dist/"

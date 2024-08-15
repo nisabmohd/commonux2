@@ -23,3 +23,4 @@ export * from "./slider";
 export * from "./textarea";
 export * from "./toggle";
 export * from "./tooltip";
+export * from "./avatar";

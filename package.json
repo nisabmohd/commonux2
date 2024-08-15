@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css"
   },

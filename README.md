@@ -58,7 +58,7 @@ Update your `tsconfig.json` with the following paths configuration:
 | Use Toast     | `./ui/use-toast`     | ✔️     |
 | Collapsible   | -                    | WIP    |
 | Stepper       | -                    | WIP    |
-| Input         | -                    | WIP    |
+| Input         | `./ui/input`         | ✔️     |
 | Tabs          | -                    | WIP    |
 | Pagination    | -                    | WIP    |
 | Badge         | -                    | WIP    |

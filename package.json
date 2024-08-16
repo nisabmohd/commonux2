@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css"
   },
@@ -121,6 +121,10 @@
     "./ui/use-toast": {
       "import": "./dist/ui/use-toast/index.js",
       "types": "./dist/ui/use-toast/index.d.ts"
+    },
+    "./ui/input": {
+      "import": "./dist/ui/input/index.js",
+      "types": "./dist/ui/input/index.d.ts"
     }
   },
   "files": [

@@ -7,6 +7,7 @@ interface IStep {
   title: string;
   component: JSX.Element;
 }
+
 export interface IStepper {
   steps: IStep[];
   onComplete: () => void;
@@ -15,7 +16,7 @@ export interface IStepper {
   onPrevious: () => void;
 }
 
-export const Stepper = (props: IStepper) => {
+const Stepper = (props: IStepper) => {
   const { steps, onComplete, onCancel, onPrevious, onNext } = props;
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -110,3 +111,5 @@ export const Stepper = (props: IStepper) => {
     </>
   );
 };
+
+export { Stepper };

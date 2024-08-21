@@ -19,7 +19,7 @@ import { cn } from "../../lib/utils";
 
 const page_limits = [5, 10, 50, 100];
 
-export default function Pagination({
+export function Pagination({
   totalData,
   initialItemsPerPage = 10,
   onPageChange,

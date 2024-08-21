@@ -14,7 +14,8 @@ export interface IStepper {
   onNext: () => void;
   onPrevious: () => void;
 }
-const StepStepper = (props: IStepper) => {
+
+export const Stepper = (props: IStepper) => {
   const { steps, onComplete, onCancel, onPrevious, onNext } = props;
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -109,5 +110,3 @@ const StepStepper = (props: IStepper) => {
     </>
   );
 };
-
-export default StepStepper;

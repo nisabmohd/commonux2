@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css"
   },
@@ -13,10 +13,6 @@
     "./icons": {
       "import": "./dist/icons/index.js",
       "types": "./dist/icons.index.d.ts"
-    },
-    "./hooks": {
-      "import": "./dist/hooks/use-toast/index.js",
-      "types": "./dist/hooks/use-toast/index.d.ts"
     },
     "./components/accordion": {
       "import": "./dist/components/accordion/index.js",

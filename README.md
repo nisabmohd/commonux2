@@ -20,54 +20,66 @@ Update your `tsconfig.json` with the following paths configuration:
   "baseUrl": ".",
   "paths": {
     // ...
-    "commonux2/ui/*": ["node_modules/commonux2/dist/ui/*"]
+    "commonux2/components/*": ["node_modules/commonux2/dist/components/*"]
   }
 }
 ```
 
-### Components
+Import `style.css' from package to your main component
 
-| Component     | Path                 | Status |
-| ------------- | -------------------- | ------ |
-| Icons         | `./icons`            | ✔️     |
-| Avatar        | `./ui/avatar`        | ✔️     |
-| Alert Dialog  | `./ui/alert-dialog`  | ✔️     |
-| Button        | `./ui/button`        | ✔️     |
-| Card          | `./ui/card`          | ✔️     |
-| Checkbox      | `./ui/checkbox`      | ✔️     |
-| Context Menu  | `./ui/context-menu`  | ✔️     |
-| Dialog        | `./ui/dialog`        | ✔️     |
-| Dropdown Menu | `./ui/dropdown-menu` | ✔️     |
-| Index         | `./ui/index.ts`      | ✔️     |
-| Label         | `./ui/label`         | ✔️     |
-| Loader        | `./ui/loader`        | ✔️     |
-| Popover       | `./ui/popover`       | ✔️     |
-| Progress      | `./ui/progress`      | ✔️     |
-| Radio Group   | `./ui/radio-group`   | ✔️     |
-| Resizable     | `./ui/resizable`     | ✔️     |
-| Select        | `./ui/select`        | ✔️     |
-| Skeleton      | `./ui/skeleton`      | ✔️     |
-| Slider        | `./ui/slider`        | ✔️     |
-| Switch        | `./ui/switch`        | ✔️     |
-| Table         | `./ui/table`         | ✔️     |
-| Textarea      | `./ui/textarea`      | ✔️     |
-| Toast         | `./ui/toast`         | ✔️     |
-| Toaster       | `./ui/toaster`       | ✔️     |
-| Toggle        | `./ui/toggle`        | ✔️     |
-| Tooltip       | `./ui/tooltip`       | ✔️     |
-| Use Toast     | `./ui/use-toast`     | ✔️     |
-| Collapsible   | -                    | WIP    |
-| Stepper       | -                    | WIP    |
-| Input         | `./ui/input`         | ✔️     |
-| Tabs          | -                    | WIP    |
-| Pagination    | -                    | WIP    |
-| Badge         | -                    | WIP    |
-| Breadcrumb    | -                    | WIP    |
-| Accordian     | -                    | WIP    |
-| Calendar      | -                    | WIP    |
-| Carausel      | -                    | WIP    |
-| Combobox      | -                    | WIP    |
-| Date picker   | -                    | WIP    |
+```tsx
+// main.tsx
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "commonux2/styles.css";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+Start importing components and use it
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "commonux2/components/alert-dialog";
+
+export function SomeComponent() {
+  return (
+    <div>
+      <AlertDialog>
+        <AlertDialogTrigger className="text-red-500">Open</AlertDialogTrigger>
+        // various component takes variant, size, color and classNames 
+        <AlertDialogContent variant="error">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Continue</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div>
+  );
+}
+```
 
 ### References
 

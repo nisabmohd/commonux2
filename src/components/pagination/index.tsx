@@ -106,7 +106,7 @@ export default function Pagination({
           </Select>
 
           <span className="text-sm font-medium text-muted-foreground">
-            Showing {itemsPerPage} records per page
+            Records per page
           </span>
         </div>
         <div className="flex flex-wrap items-center space-x-2.5 space-y-2.5">

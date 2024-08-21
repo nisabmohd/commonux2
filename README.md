@@ -61,7 +61,7 @@ export function SomeComponent() {
     <div>
       <AlertDialog>
         <AlertDialogTrigger className="text-red-500">Open</AlertDialogTrigger>
-        // various component takes variant, size, color and classNames 
+          {/*  various component takes variant, size, color and classNames  */}
         <AlertDialogContent variant="error">
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>

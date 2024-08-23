@@ -40,15 +40,13 @@ export function Pagination({
     itemsPerPage: number;
   }) => void;
 }) {
-  const [currentPage, setCurrentPage] = useState(givenPageNo);
+  const [currentPage, setCurrentPage] = useState(givenPageNo ?? 1);
   const [itemsPerPage, setItemsPerPage] = useState(initialItemsPerPage);
   const [manualPageChange, setManualPageChange] = useState(false);
   const [isValidJump, setIsValidJump] = useState(true);
   const [jumpInput, setJumpInput] = useState(currentPage);
 
   const totalPages = Math.ceil(totalData / itemsPerPage);
-
-  if (givenPageNo > totalPages) throw new Error("Invalid page number provided");
 
   const handlePageChange = (page: number) => {
     if (page !== currentPage && page >= 1 && page <= totalPages) {
@@ -198,7 +196,7 @@ function PaginationElipse() {
 }
 
 function generatePageNumbers(currentPage: number, totalPages: number) {
-  const delta = 2;
+  const delta = 1;
   const range = [];
   const rangeWithDots = [];
 

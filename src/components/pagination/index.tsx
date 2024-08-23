@@ -23,11 +23,13 @@ export function Pagination({
   totalData,
   initialItemsPerPage = 10,
   onPageChange,
+  currentPage: givenPageNo,
   pageLimits = page_limits,
 }: {
   totalData: number;
   initialItemsPerPage?: number;
   pageLimits?: number[];
+  currentPage: number;
   onPageChange: ({
     currentPage,
     pageOffset,
@@ -38,13 +40,15 @@ export function Pagination({
     itemsPerPage: number;
   }) => void;
 }) {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(givenPageNo);
   const [itemsPerPage, setItemsPerPage] = useState(initialItemsPerPage);
   const [manualPageChange, setManualPageChange] = useState(false);
   const [isValidJump, setIsValidJump] = useState(true);
   const [jumpInput, setJumpInput] = useState(currentPage);
 
   const totalPages = Math.ceil(totalData / itemsPerPage);
+
+  if (givenPageNo > totalPages) throw new Error("Invalid page number provided");
 
   const handlePageChange = (page: number) => {
     if (page !== currentPage && page >= 1 && page <= totalPages) {

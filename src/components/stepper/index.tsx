@@ -14,10 +14,12 @@ export interface IStepper {
   onCancel?: () => void;
   onNext: () => void;
   onPrevious: () => void;
+  footerClassName?: string;
 }
 
-const Stepper = (props: IStepper) => {
-  const { steps, onComplete, onCancel, onPrevious, onNext } = props;
+export const Stepper = (props: IStepper) => {
+  const { steps, onComplete, onCancel, onPrevious, onNext, footerClassName } =
+    props;
   const [currentStep, setCurrentStep] = useState(1);
 
   const handleNext = () => {
@@ -59,7 +61,7 @@ const Stepper = (props: IStepper) => {
                 </span>
 
                 <span
-                  className={`step-label ${
+                  className={`text-xs ${
                     i + 1 < currentStep
                       ? "font-bold"
                       : i + 1 === currentStep
@@ -82,11 +84,13 @@ const Stepper = (props: IStepper) => {
 
       <div className="p-5">{steps[currentStep - 1].component}</div>
 
-      <div className="flex flex-row">
+      <div className={footerClassName ? footerClassName : "flex flex-row"}>
         <div className="flex justify-start w-6/12">
-          <Button className="ml-3" variant="secondary" onClick={handlePrevious}>
-            {"Previous"}
-          </Button>
+          {currentStep > 1 && (
+            <Button className="ml-3" variant="ghost" onClick={handlePrevious}>
+              {"Previous"}
+            </Button>
+          )}
         </div>
 
         {currentStep <= steps.length && (
@@ -111,5 +115,3 @@ const Stepper = (props: IStepper) => {
     </>
   );
 };
-
-export { Stepper };

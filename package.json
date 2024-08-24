@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css",
     "push": "npm run build && npm publish --access public"
@@ -98,6 +98,10 @@
     "./components/resizable": {
       "import": "./dist/components/resizable/index.js",
       "types": "./dist/components/resizable/index.d.ts"
+    },
+    "./components/scroll-area": {
+      "import": "./dist/components/scroll-area/index.js",
+      "types": "./dist/components/scroll-area/index.d.ts"
     },
     "./components/select": {
       "import": "./dist/components/select/index.js",

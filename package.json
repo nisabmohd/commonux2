@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.5.4",
+  "version": "1.5.6",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css",
     "push": "npm run build && npm publish --access public"
@@ -59,6 +59,10 @@
       "import": "./dist/components/collapsible/index.js",
       "types": "./dist/components/collapsible/index.d.ts"
     },
+    "./components/command": {
+      "import": "./dist/components/command/index.js",
+      "types": "./dist/components/command/index.d.ts"
+    },
     "./components/context-menu": {
       "import": "./dist/components/context-menu/index.js",
       "types": "./dist/components/context-menu/index.d.ts"
@@ -78,6 +82,10 @@
     "./components/label": {
       "import": "./dist/components/label/index.js",
       "types": "./dist/components/label/index.d.ts"
+    },
+    "./components/multi-select": {
+      "import": "./dist/components/multi-select/index.js",
+      "types": "./dist/components/multi-select/index.d.ts"
     },
     "./components/pagination": {
       "import": "./dist/components/pagination/index.js",
@@ -196,6 +204,7 @@
     "@tanstack/react-table": "^8.20.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "lucide-react": "^0.427.0",
     "react": "^18.3.1",

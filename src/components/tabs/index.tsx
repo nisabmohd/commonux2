@@ -41,8 +41,8 @@ const tabVariants = cva(
   {
     variants: {
       variant: {
-        main: "data-[state=active]:border-t-[1px] data-[state=active]:border-l-[1px] data-[state=active]:border-r-[1px] bg-[#dbdbdb] data-[state=active]:border-t-[#0052ff] data-[state=active]:border-l-[#dfdfdf] data-[state=active]:border-r-[#dfdfdf] mx-[8px] data-[state=active]:border-l-[#dbdbdb] data-[state=active]:border-r-[#dbdbdb] rounded-[0px] h-[32px]",
-        side: "data-[state=active]:border-b-[1px] data-[state=active]:border-b-[#0052ff] bg-white rounded-none",
+        main: "bg-[#dbdbdb] mx-[8px] h-[100%] data-[state=active]:h-[103%] data-[state=active]:mt-[1px] data-[state=active]:border-t-[3px] data-[state=active]:border-t-[#0052ff]",
+        side: "data-[state=active]:border-b-[3px] data-[state=active]:border-b-[#0052ff] bg-white rounded-none",
         subSide:
           "bg-[#f5f5f5] h-[24px] w-[80%] mx-[4px] my-[4px] data-[state=active]:bg-[#d6def7] rounded-[5px]",
       },

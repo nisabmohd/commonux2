@@ -6,12 +6,13 @@ import { Label } from "../label";
 import { cn } from "../../lib/utils";
 
 const inputVariants = cva(
-  "flex h-10 w-full rounded-md border-2 border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50",
+  "flex h-[2.3rem] w-full rounded-md border-2 border-input bg-background px-3 py-1 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
         search: "pr-8",
         error: "pr-8 border-2 border-red-500",
+        warn: "pr-8 border-2 border-orange-500",
         success: "pr-8",
       },
     },
@@ -46,7 +47,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="flex flex-col gap-1">
         {label && (
           <Label htmlFor={id}>
-            <p>
+            <p className="text-abb-grey-90">
               {label}{" "}
               {
                 <span
@@ -61,25 +62,32 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </p>
           </Label>
         )}
-        <div className="relative">
+        <div className="relative max-h-fit">
           {variant == "error" && showIcons && (
             <AlertCircleIcon
               className={cn(
-                "absolute w-5 h-5 text-white fill-destructive right-2 top-2.5"
+                "absolute w-5 h-5 text-white fill-destructive right-2 top-2"
               )}
             />
           )}
           {variant == "search" && showIcons && (
             <SearchIcon
               className={cn(
-                "absolute w-4 h-4 text-muted-foreground right-2.5 top-3"
+                "absolute w-4 h-4 text-muted-foreground right-2.5 top-2.5"
               )}
             />
           )}
           {variant == "success" && showIcons && (
             <CircleCheck
               className={cn(
-                "absolute w-5 h-5 text-white fill-green-600 right-2 top-2.5"
+                "absolute w-5 h-5 text-white fill-green-600 right-2 top-2"
+              )}
+            />
+          )}
+          {variant == "warn" && showIcons && (
+            <AlertCircleIcon
+              className={cn(
+                "absolute w-5 h-5 text-white fill-orange-500 right-2 top-2"
               )}
             />
           )}
@@ -90,7 +98,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type={type}
             className={cn(
               inputVariants({ variant, className }),
-              disabled && "bg-gray-100"
+              disabled && "bg-[#dbdbdb]"
             )}
             ref={ref}
             disabled={disabled}

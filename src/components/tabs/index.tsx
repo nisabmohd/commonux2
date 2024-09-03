@@ -37,12 +37,12 @@ export interface listContentCustomProps
     VariantProps<typeof listVariants> {}
 
 const tabVariants = cva(
-  "inline-flex items-center justify-center bg-dbdbdb px-[16px] py-[8px] whitespace-nowrap text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground",
+  "inline-flex items-center justify-center bg-dbdbdb py-[8px] whitespace-nowrap text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground",
   {
     variants: {
       variant: {
         main: "bg-[#dbdbdb] mx-[8px] h-[100%] data-[state=active]:h-[103%] data-[state=active]:mt-[1px] data-[state=active]:border-t-[3px] data-[state=active]:border-t-[#0052ff]",
-        side: "data-[state=active]:border-b-[3px] data-[state=active]:border-b-[#0052ff] bg-white rounded-none",
+        side: "data-[state=active]:border-b-[3px] border-b-white data-[state=active]:border-b-[#0052ff] bg-white rounded-none mx-2 px-1",
         subSide:
           "bg-[#f5f5f5] h-[24px] w-[80%] mx-[4px] my-[4px] data-[state=active]:bg-[#d6def7] rounded-[5px]",
       },

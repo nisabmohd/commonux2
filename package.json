@@ -1,9 +1,10 @@
 {
   "name": "commonux2",
-  "version": "1.5.9",
+  "version": "1.6.0",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css",
-    "push": "npm run build && npm publish --access public"
+    "push": "npm run build && npm publish --access public",
+    "local": "npm run build && npm link"
   },
   "exports": {
     "./styles.css": "./dist/styles.css",
@@ -126,10 +127,6 @@
     "./components/spinner": {
       "import": "./dist/components/spinner/index.js",
       "types": "./dist/components/spinner/index.d.ts"
-    },
-    "./components/stepper": {
-      "import": "./dist/components/stepper/index.js",
-      "types": "./dist/components/stepper/index.d.ts"
     },
     "./components/switch": {
       "import": "./dist/components/switch/index.js",

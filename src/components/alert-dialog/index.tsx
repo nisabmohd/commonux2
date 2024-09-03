@@ -4,8 +4,8 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { buttonVariants } from "../button";
 import { cva, type VariantProps } from "class-variance-authority";
 import {
-  AlertTriangleIcon,
   CheckCircle2Icon,
+  CircleAlertIcon,
   CircleXIcon,
   InfoIcon,
   X,
@@ -40,7 +40,7 @@ const alertDialogVariants = cva(
       variant: {
         error: "border-t-red-600",
         info: "border-t-primary",
-        warn: "border-t-orange-400",
+        warn: "border-t-orange-500",
         success: "border-t-green-500",
       },
     },
@@ -64,20 +64,20 @@ const AlertDialogContent = React.forwardRef<
     >
       <div className="flex items-start gap-4">
         {variant == "info" && (
-          <InfoIcon className="hidden -mt-2 text-white w-14 h-14 fill-primary sm:flex" />
+          <InfoIcon className="hidden w-10 h-10 text-white fill-primary sm:flex" />
         )}
         {variant == "warn" && (
-          <AlertTriangleIcon className="hidden -mt-2 text-white w-14 h-14 fill-orange-400 sm:flex" />
+          <CircleAlertIcon className="hidden w-10 h-10 text-white fill-orange-500 sm:flex" />
         )}
         {variant == "success" && (
-          <CheckCircle2Icon className="hidden -mt-2 text-white w-14 h-14 fill-green-500 sm:flex" />
+          <CheckCircle2Icon className="hidden w-10 h-10 text-white fill-green-500 sm:flex" />
         )}
         {variant == "error" && (
-          <CircleXIcon className="hidden -mt-2 text-white w-14 h-14 fill-destructive sm:flex" />
+          <CircleXIcon className="hidden w-10 h-10 text-white fill-destructive sm:flex" />
         )}
         <AlertDialogCancel
           className={cn(
-            "absolute right-3 border-none top-2.5 !hover:bg-red-500",
+            "absolute right-3 border-none top-2 !hover:bg-red-500",
             "hover:bg-white"
           )}
         >
@@ -163,7 +163,7 @@ const AlertDialogCancel = React.forwardRef<
   <AlertDialogPrimitive.Cancel
     ref={ref}
     className={cn(
-      buttonVariants({ variant: "outline" }),
+      buttonVariants({ variant: "ghost" }),
       "mt-2 sm:mt-0",
       className
     )}

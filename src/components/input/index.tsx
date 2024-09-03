@@ -4,9 +4,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { AlertCircleIcon, CircleCheck, SearchIcon } from "lucide-react";
 import { Label } from "../label";
 import { cn } from "../../lib/utils";
+import clsx from "clsx";
 
 const inputVariants = cva(
-  "flex h-[2.3rem] w-full rounded-md border-2 border-input bg-background px-3 py-1 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed",
+  "flex h-9 w-full rounded-md border-2 border-stone-200 bg-background px-3 py-1 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -14,6 +15,12 @@ const inputVariants = cva(
         error: "pr-8 border-2 border-red-500",
         warn: "pr-8 border-2 border-orange-500",
         success: "pr-8",
+      },
+      size: {
+        default: "h-9",
+        sm: "h-8 text-[13px]",
+        md: "h-10",
+        lg: "h-11",
       },
     },
   }
@@ -25,6 +32,26 @@ export interface InputProps
   label?: string;
   description?: string;
   showIcons?: boolean;
+}
+
+function inputHeightClass(
+  size: VariantProps<typeof inputVariants>["size"],
+  variant?: VariantProps<typeof inputVariants>["variant"]
+) {
+  if (variant == "search") {
+    return clsx({
+      "right-2.5 top-[0.47rem]": size == "sm",
+      "right-2 top-[0.65rem]": size == "default",
+      "right-2 top-[0.73rem]": size == "md",
+      "right-2 top-[0.78rem] w-5 h-5": size == "lg",
+    });
+  }
+  return clsx({
+    "right-2 top-1.5": size == "sm",
+    "right-2 top-[0.52rem]": size == "default",
+    "right-2 top-[0.6rem]": size == "md",
+    "right-2 top-2.5 h-6 w-6": size == "lg",
+  });
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -39,6 +66,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       id = "inputbox",
       showIcons = true,
       disabled,
+      size = "default",
       ...props
     },
     ref
@@ -62,32 +90,36 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </p>
           </Label>
         )}
-        <div className="relative max-h-fit">
+        <div className="relative max-h-fit top-2.5">
           {variant == "error" && showIcons && (
             <AlertCircleIcon
               className={cn(
-                "absolute w-5 h-5 text-white fill-destructive right-2 top-2"
+                "absolute w-5 h-5 text-white fill-destructive",
+                inputHeightClass(size)
               )}
             />
           )}
           {variant == "search" && showIcons && (
             <SearchIcon
               className={cn(
-                "absolute w-4 h-4 text-muted-foreground right-2.5 top-2.5"
+                "absolute w-4 h-4 text-muted-foreground text-stone-500",
+                inputHeightClass(size, variant)
               )}
             />
           )}
           {variant == "success" && showIcons && (
             <CircleCheck
               className={cn(
-                "absolute w-5 h-5 text-white fill-green-600 right-2 top-2"
+                "absolute w-5 h-5 text-white fill-green-600",
+                inputHeightClass(size)
               )}
             />
           )}
           {variant == "warn" && showIcons && (
             <AlertCircleIcon
               className={cn(
-                "absolute w-5 h-5 text-white fill-orange-500 right-2 top-2"
+                "absolute w-5 h-5 text-white fill-orange-500",
+                inputHeightClass(size)
               )}
             />
           )}
@@ -97,8 +129,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             required={required}
             type={type}
             className={cn(
-              inputVariants({ variant, className }),
-              disabled && "bg-[#dbdbdb]"
+              inputVariants({ variant, className, size }),
+              disabled && "bg-stone-200 !border-stone-300"
             )}
             ref={ref}
             disabled={disabled}

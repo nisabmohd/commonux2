@@ -40,10 +40,10 @@ function inputHeightClass(
 ) {
   if (variant == "search") {
     return clsx({
-      "right-2.5 top-[0.47rem]": size == "sm",
-      "right-2 top-[0.65rem]": size == "default",
-      "right-2 top-[0.73rem]": size == "md",
-      "right-2 top-[0.78rem] w-5 h-5": size == "lg",
+      "right-2.5 top-[0.51rem]": size == "sm",
+      "right-2.5 top-[0.68rem]": size == "default",
+      "right-2.5 top-[0.75rem]": size == "md",
+      "right-2.5 top-[0.78rem] w-5 h-5": size == "lg",
     });
   }
   return clsx({
@@ -72,25 +72,23 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-3">
         {label && (
-          <Label htmlFor={id}>
-            <p className="text-abb-grey-90">
-              {label}{" "}
-              {
-                <span
-                  className={cn(
-                    "text-destructive text-sm",
-                    !required && "opacity-0"
-                  )}
-                >
-                  *
-                </span>
-              }
-            </p>
+          <Label className="text-abb-grey-90 pl-0.5" htmlFor={id}>
+            {label}{" "}
+            {required && (
+              <span
+                className={cn(
+                  "text-destructive text-sm",
+                  !required && "opacity-0"
+                )}
+              >
+                *
+              </span>
+            )}
           </Label>
         )}
-        <div className="relative max-h-fit top-2.5">
+        <div className="relative min-h-fit top-2.5 -mt-4">
           {variant == "error" && showIcons && (
             <AlertCircleIcon
               className={cn(

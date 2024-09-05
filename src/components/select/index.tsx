@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Label } from "../label";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
@@ -183,13 +183,14 @@ const SelectItem = React.forwardRef<
     )}
     {...props}
   >
-    {/* <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+    <SelectPrimitive.ItemText className="pr-2">
+      {children}
+    </SelectPrimitive.ItemText>
+    <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
         <Check className="w-4 h-4" />
       </SelectPrimitive.ItemIndicator>
-    </span> */}
-
-    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    </span>
   </SelectPrimitive.Item>
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;

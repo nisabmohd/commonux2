@@ -5,6 +5,7 @@ import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import clsx from "clsx";
 
 const Select = SelectPrimitive.Root;
 
@@ -17,7 +18,10 @@ const selectTriggerVariants = cva(
   {
     variants: {
       variant: {
-        error: "pr-8 border-2 border-red-500",
+        search: "pr-2.5",
+        error: "pr-2.5 border-2 border-red-500",
+        warn: "pr-2.5 border-2 border-orange-500",
+        success: "pr-2.5 border-2 border-green-600",
       },
     },
   }
@@ -41,36 +45,26 @@ const SelectTrigger = React.forwardRef<
       variant,
       label,
       description,
-      // showIcons = true,
+      showIcons = true,
       id = "selectbox",
       children,
       ...props
     },
     ref
   ) => (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-3">
       {label && (
-        <Label htmlFor={id}>
-          <p>{label} </p>
+        <Label className="text-abb-grey-90 pl-0.5" htmlFor={id}>
+          {label}
         </Label>
       )}
-      <div className="relative w-[100%]">
-        {/* {variant == "error" && showIcons && (
-          <AlertCircleIcon
-            className={cn(
-              "absolute w-5 h-5 text-white fill-destructive right-[60%] top-2.5"
-            )}
-          />
-        )} */}
+      <div className="relative w-full">
         <SelectPrimitive.Trigger
           ref={ref}
           className={cn(selectTriggerVariants({ variant, className }))}
           {...props}
         >
           {children}
-          {/* <AlertCircleIcon
-            className={cn("h-4 w-4 text-white fill-destructive")}
-          /> */}
           <SelectPrimitive.Icon asChild>
             <ChevronDown className="w-4 h-4 opacity-50" />
           </SelectPrimitive.Icon>
@@ -80,8 +74,10 @@ const SelectTrigger = React.forwardRef<
       {description && (
         <p
           className={cn(
-            "text-[14px] text-muted-foreground",
-            variant == "error" && "text-destructive"
+            "text-[14px] text-muted-foreground -mt-2",
+            variant == "error" && "text-destructive",
+            variant == "success" && "text-green-600",
+            variant == "warn" && "text-orange-500"
           )}
         >
           {description}

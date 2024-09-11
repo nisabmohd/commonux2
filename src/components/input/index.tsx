@@ -14,7 +14,7 @@ const inputVariants = cva(
         search: "pr-8",
         error: "pr-8 border-2 border-red-500",
         warn: "pr-8 border-2 border-orange-500",
-        success: "pr-8 border-2 border-green-500",
+        success: "pr-8 border-2 border-green-600",
       },
       size: {
         default: "h-9",
@@ -141,7 +141,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               "text-[14px] text-muted-foreground",
               variant == "error" && "text-destructive",
-              variant == "success" && "text-green-500"
+              variant == "success" && "text-green-600",
+              variant == "warn" && "text-orange-500"
             )}
           >
             {description}

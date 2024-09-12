@@ -1,6 +1,6 @@
 {
   "name": "commonux2",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "scripts": {
     "build": "tsc && postcss src/styles.css -o dist/styles.css",
     "push": "npm run build && npm publish --access public",

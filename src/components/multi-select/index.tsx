@@ -73,10 +73,7 @@ interface MultipleSelectorProps {
   /** Props of `Command` */
   commandProps?: React.ComponentPropsWithoutRef<typeof Command>;
   /** Props of `CommandInput` */
-  inputProps?: Omit<
-    React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>,
-    "value" | "placeholder" | "disabled"
-  >;
+  inputProps?: Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, "value" | "placeholder" | "disabled">;
   /** hide the clear all button. */
   hideClearAllButton?: boolean;
   label?: string;
@@ -127,9 +124,7 @@ function transToGroupOption(options: Option[], groupBy?: string) {
 
 function isOptionsExist(groupOption: GroupOption, targetOption: Option[]) {
   for (const [, value] of Object.entries(groupOption)) {
-    if (
-      value.some((option) => targetOption.find((p) => p.value === option.value))
-    ) {
+    if (value.some((option) => targetOption.find((p) => p.value === option.value))) {
       return true;
     }
   }
@@ -142,31 +137,17 @@ function isOptionsExist(groupOption: GroupOption, targetOption: Option[]) {
  *
  * @reference: https://github.com/hsuanyi-chou/shadcn-ui-expansions/issues/34#issuecomment-1949561607
  **/
-const CommandEmpty = forwardRef<
-  HTMLDivElement,
-  React.ComponentProps<typeof CommandPrimitive.Empty>
->(({ className, ...props }, forwardedRef) => {
+const CommandEmpty = forwardRef<HTMLDivElement, React.ComponentProps<typeof CommandPrimitive.Empty>>(({ className, ...props }, forwardedRef) => {
   const render = useCommandState((state: any) => state.filtered.count === 0);
 
   if (!render) return null;
 
-  return (
-    <div
-      ref={forwardedRef}
-      className={cn("py-6 text-center text-sm", className)}
-      cmdk-empty=""
-      role="presentation"
-      {...props}
-    />
-  );
+  return <div ref={forwardedRef} className={cn("py-6 text-center text-sm", className)} cmdk-empty="" role="presentation" {...props} />;
 });
 
 CommandEmpty.displayName = "CommandEmpty";
 
-const MultipleSelector = React.forwardRef<
-  MultipleSelectorRef,
-  MultipleSelectorProps
->(
+const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorProps>(
   (
     {
       value,
@@ -206,9 +187,7 @@ const MultipleSelector = React.forwardRef<
     const dropdownRef = React.useRef<HTMLDivElement>(null); // Added this
 
     const [selected, setSelected] = React.useState<Option[]>(value || []);
-    const [options, setOptions] = React.useState<GroupOption>(
-      transToGroupOption(arrayDefaultOptions, groupBy)
-    );
+    const [options, setOptions] = React.useState<GroupOption>(transToGroupOption(arrayDefaultOptions, groupBy));
     const [inputValue, setInputValue] = React.useState("");
     const debouncedSearchTerm = useDebounce(inputValue, delay || 500);
 
@@ -223,12 +202,7 @@ const MultipleSelector = React.forwardRef<
     );
 
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node) &&
-        inputRef.current &&
-        !inputRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node) && inputRef.current && !inputRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
@@ -348,10 +322,7 @@ const MultipleSelector = React.forwardRef<
 
     const CreatableItem = () => {
       if (!creatable) return undefined;
-      if (
-        isOptionsExist(options, [{ value: inputValue, label: inputValue }]) ||
-        selected.find((s) => s.value === inputValue)
-      ) {
+      if (isOptionsExist(options, [{ value: inputValue, label: inputValue }]) || selected.find((s) => s.value === inputValue)) {
         return undefined;
       }
 
@@ -438,15 +409,8 @@ const MultipleSelector = React.forwardRef<
             handleKeyDown(e);
             commandProps?.onKeyDown?.(e);
           }}
-          className={cn(
-            "h-auto overflow-visible bg-transparent",
-            commandProps?.className
-          )}
-          shouldFilter={
-            commandProps?.shouldFilter !== undefined
-              ? commandProps.shouldFilter
-              : !onSearch
-          } // When onSearch is provided, we don't want to filter the options. You can still override it.
+          className={cn("h-auto overflow-visible bg-transparent", commandProps?.className)}
+          shouldFilter={commandProps?.shouldFilter !== undefined ? commandProps.shouldFilter : !onSearch} // When onSearch is provided, we don't want to filter the options. You can still override it.
           filter={commandFilter()}
         >
           <div
@@ -523,11 +487,7 @@ const MultipleSelector = React.forwardRef<
                   }
                   inputProps?.onFocus?.(event);
                 }}
-                placeholder={
-                  hidePlaceholderWhenSelected && selected.length !== 0
-                    ? ""
-                    : placeholder
-                }
+                placeholder={hidePlaceholderWhenSelected && selected.length !== 0 ? "" : placeholder}
                 className={cn(
                   "flex-1 bg-transparent outline-none placeholder:text-muted-foreground",
                   {
@@ -546,12 +506,7 @@ const MultipleSelector = React.forwardRef<
                 }}
                 className={cn(
                   "absolute right-0 h-6 w-6 p-0",
-                  (hideClearAllButton ||
-                    disabled ||
-                    selected.length < 1 ||
-                    selected.filter((s) => s.fixed).length ===
-                      selected.length) &&
-                    "hidden"
+                  (hideClearAllButton || disabled || selected.length < 1 || selected.filter((s) => s.fixed).length === selected.length) && "hidden"
                 )}
               >
                 <X />
@@ -561,10 +516,7 @@ const MultipleSelector = React.forwardRef<
           <div className="relative">
             {open && (
               <CommandList
-                className={cn(
-                  "absolute top-1 z-10 w-[100%] rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in",
-                  className
-                )}
+                className={cn("absolute top-1 z-10 w-[100%] rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in", className)}
                 onMouseLeave={() => {
                   setOnScrollbar(false);
                 }}
@@ -581,15 +533,9 @@ const MultipleSelector = React.forwardRef<
                   <>
                     {EmptyItem()}
                     {CreatableItem()}
-                    {!selectFirstItem && (
-                      <CommandItem value="-" className="hidden" />
-                    )}
+                    {!selectFirstItem && <CommandItem value="-" className="hidden" />}
                     {Object.entries(selectables).map(([key, dropdowns]) => (
-                      <CommandGroup
-                        key={key}
-                        heading={key}
-                        className="h-full overflow-auto"
-                      >
+                      <CommandGroup key={key} heading={key} className="h-full overflow-auto">
                         <>
                           {dropdowns.map((option) => {
                             return (
@@ -607,9 +553,7 @@ const MultipleSelector = React.forwardRef<
                                     return;
                                   }
                                   setInputValue("");
-                                  const isSelected = selected.find(
-                                    (value) => value === option
-                                  );
+                                  const isSelected = selected.find((value) => value === option);
                                   if (isSelected) {
                                     handleUnselect(option);
                                   } else {
@@ -618,27 +562,11 @@ const MultipleSelector = React.forwardRef<
                                     onChange?.(newOptions);
                                   }
                                 }}
-                                className={cn(
-                                  "cursor-pointer",
-                                  option.disable &&
-                                    "cursor-default text-muted-foreground"
-                                )}
+                                className={cn("cursor-pointer", option.disable && "cursor-default text-muted-foreground")}
                               >
-                                <Checkbox
-                                  id={option.value}
-                                  checked={
-                                    selected.find(
-                                      (item) => item.value === option.value
-                                    )
-                                      ? true
-                                      : false
-                                  }
-                                />
+                                <Checkbox id={option.value} checked={selected.find((item) => item.value === option.value) ? true : false} />
                                 <div className="grid gap-1.5 leading-none">
-                                  <label
-                                    htmlFor={option.value}
-                                    className="ml-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                  >
+                                  <label htmlFor={option.value} className="ml-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                                     {option.label}
                                   </label>
                                 </div>
@@ -654,16 +582,7 @@ const MultipleSelector = React.forwardRef<
             )}
           </div>
         </Command>
-        {description && (
-          <p
-            className={cn(
-              "text-[14px] text-muted-foreground",
-              variant == "error" && "text-destructive"
-            )}
-          >
-            {description}
-          </p>
-        )}
+        {description && <p className={cn("text-[14px] text-muted-foreground", variant == "error" && "text-destructive")}>{description}</p>}
       </div>
     );
   }

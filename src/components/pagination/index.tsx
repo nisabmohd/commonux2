@@ -1,4 +1,5 @@
-import React from "react";
+import * as React from "react";
+import { ComponentProps, useState, useEffect } from "react";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -7,7 +8,6 @@ import {
 } from "lucide-react";
 import { Button } from "../button";
 import { Input } from "../input";
-import { ComponentProps, useState, useEffect } from "react";
 import {
   Select,
   SelectContent,

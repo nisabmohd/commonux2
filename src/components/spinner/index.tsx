@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2Icon } from "lucide-react";
-import { ComponentPropsWithoutRef } from "react";
 import { cn } from "../../lib/utils";
 
 const spinnerVariants = cva("animate-spin", {

@@ -5,7 +5,6 @@ import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
-import clsx from "clsx";
 
 const Select = SelectPrimitive.Root;
 

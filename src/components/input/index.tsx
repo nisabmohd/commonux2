@@ -16,7 +16,7 @@ const inputVariants = cva(
         success: "pr-8 border-2 border-green-600",
       },
       size: {
-        default: "h-9",
+        default: "h-8",
         sm: "h-8 text-[13px]",
         md: "h-10",
         lg: "h-11",

@@ -71,7 +71,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-1">
         {label && (
           <Label className="text-abb-grey-90 pl-0.5" htmlFor={id}>
             {label}{" "}
@@ -87,7 +87,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             )}
           </Label>
         )}
-        <div className="relative min-h-fit top-2.5">
+        <div className="relative">
           {variant == "error" && showIcons && (
             <AlertCircleIcon
               className={cn(
@@ -136,7 +136,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {description && (
           <p
             className={cn(
-              "text-[14px] text-muted-foreground mt-3",
+              "text-[14px] text-muted-foreground",
               variant == "error" && "text-destructive",
               variant == "success" && "text-green-600",
               variant == "warn" && "text-orange-500"
@@ -149,7 +149,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-
 Input.displayName = "Input";
 
 export { Input, inputVariants };

@@ -29,20 +29,18 @@ const ToastViewport = React.forwardRef<
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
 const toastVariants = cva(
-  "group pointer-events-auto flex w-full space-x-4 p-4 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+  "group pointer-events-auto flex w-full space-x-4 p-4 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full my-1",
   {
     variants: {
       variant: {
         default: "border text-foreground",
-        error: "group bg-destructive",
+        error: "group bg-abb-status-error",
         info: "group bg-primary",
-        warn: "group bg-orange-400",
-        success: "group bg-green-500",
+        warn: "group bg-abb-status-warn",
+        success: "group bg-abb-status-success",
       },
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   }
 );
 
@@ -63,7 +61,10 @@ const Toast = React.forwardRef<
           <AlertTriangleIcon className="text-white" size={28} />
         )}
         {variant == "success" && (
-          <CheckCircle2Icon className="text-green-500 fill-white" size={28} />
+          <CheckCircle2Icon
+            className="text-abb-status-success fill-white"
+            size={28}
+          />
         )}
         {variant == "error" && (
           <CircleXIcon className="text-white fill-destructive" size={28} />

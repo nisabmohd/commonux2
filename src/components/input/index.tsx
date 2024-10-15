@@ -40,7 +40,7 @@ function inputHeightClass(
   if (variant == "search") {
     return clsx({
       "right-2.5 top-[0.51rem]": size == "sm",
-      "right-2.5 top-[0.68rem]": size == "default",
+      "right-2.5 top-[0.5rem]": size == "default",
       "right-2.5 top-[0.75rem]": size == "md",
       "right-2.5 top-[0.78rem] w-5 h-5": size == "lg",
     });

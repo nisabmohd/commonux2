@@ -20,7 +20,7 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-10 sm:flex-col",
+      "fixed top-0 z-[100] flex max-h-fit flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-10 sm:flex-col",
       className
     )}
     {...props}
@@ -91,16 +91,30 @@ const ToastAction = React.forwardRef<
 ));
 ToastAction.displayName = ToastPrimitives.Action.displayName;
 
+const toastCloseVariants = cva(
+  "ml-auto rounded-full p-1 text-foreground/50 focus:outline-none group-hover:opacity-100 text-white hover:bg-white",
+  {
+    variants: {
+      variant: {
+        default: "hover:text-foreground",
+        error: "hover:text-abb-status-error",
+        info: "hover:text-primary",
+        warn: "hover:text-abb-status-warn",
+        success: "hover:text-abb-status-success",
+      },
+    },
+    defaultVariants: { variant: "default" },
+  }
+);
+
 const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Close>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close> &
+    VariantProps<typeof toastCloseVariants>
+>(({ className, variant, ...props }, ref) => (
   <ToastPrimitives.Close
     ref={ref}
-    className={cn(
-      "ml-auto rounded-full p-1 text-foreground/50 focus:outline-none group-hover:opacity-100 text-white hover:bg-white hover:text-green-500",
-      className
-    )}
+    className={cn(toastCloseVariants({ variant }), className)}
     toast-close=""
     {...props}
   >
@@ -135,10 +149,13 @@ ToastDescription.displayName = ToastPrimitives.Description.displayName;
 
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
 
+type ToastCloseProps = React.ComponentPropsWithoutRef<typeof ToastClose>;
+
 type ToastActionElement = React.ReactElement<typeof ToastAction>;
 
 export {
   type ToastProps,
+  type ToastCloseProps,
   type ToastActionElement,
   ToastProvider,
   ToastViewport,

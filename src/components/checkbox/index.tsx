@@ -5,15 +5,17 @@ import { Check, SquareMinus } from "lucide-react";
 import { cn } from "../../lib/utils";
 
 type CheckboxProps = React.ComponentPropsWithoutRef<
-  {
-    type: "full" | "semi";
-  } & typeof CheckboxPrimitive.Root
+  typeof CheckboxPrimitive.Root
 >;
+
+type ExtendedCheckboxProps = Omit<CheckboxProps, "defaultChecked"> & {
+  checkedType?: "full" | "semi";
+};
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
-  CheckboxProps
->(({ className, type = "full", ...props }, ref) => (
+  ExtendedCheckboxProps
+>(({ className, checkedType = "full", ...props }, ref) => (
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
@@ -25,10 +27,10 @@ const Checkbox = React.forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn("flex items-center justify-center text-current")}
     >
-      {type === "full" ? (
-        <Check className="h-4 w-4" strokeWidth={3} />
+      {checkedType === "semi" ? (
+        <SquareMinus className="w-4 h-4" strokeWidth={3} />
       ) : (
-        <SquareMinus className="h-4 w-4" strokeWidth={3} />
+        <Check className="w-4 h-4" strokeWidth={3} />
       )}
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>

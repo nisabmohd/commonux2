@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Check, SquareMinus } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 
 import { cn } from "../../lib/utils";
 
@@ -28,7 +28,7 @@ const Checkbox = React.forwardRef<
       className={cn("flex items-center justify-center text-current")}
     >
       {checkedType === "semi" ? (
-        <SquareMinus className="w-4 h-4" strokeWidth={3} />
+        <Minus className="w-4 h-4" strokeWidth={3} />
       ) : (
         <Check className="w-4 h-4" strokeWidth={3} />
       )}
